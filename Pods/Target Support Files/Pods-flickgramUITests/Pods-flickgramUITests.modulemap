@@ -1,0 +1,6 @@
+framework module Pods_flickgramUITests {
+  umbrella header "Pods-flickgramUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

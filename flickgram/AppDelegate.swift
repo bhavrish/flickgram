@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        Parse.initialize(
+            with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
+                configuration.applicationId = "flickgram"
+                configuration.clientKey = "aeawekygykukrwactfyuytbuytcseaeyiuytvdruttyui"
+                configuration.server = "https://flickgram.herokuapp.com/parse"
+            })
+        )
+        
+        if PFUser.current() != nil { // checks cache to see if user is logged in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "AuthenticatedViewController")
+        }
+        
         return true
     }
 
