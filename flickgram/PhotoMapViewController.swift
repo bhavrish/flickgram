@@ -37,7 +37,7 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
             chosenImageView.image = image
         }
         else {
-            "Problem getting the chosen image"
+            print("Problem getting the chosen image")
         }
         
         self.dismiss(animated: true, completion: nil)
