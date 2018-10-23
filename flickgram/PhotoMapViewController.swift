@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Parse
 
 class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var chosenImageView: UIImageView!
+    @IBOutlet weak var uploadMessage: UITextField!
+    @IBOutlet weak var postUploadingLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,4 +45,39 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func postOnTap(_ sender: Any) {
+        var imageText = uploadMessage.text
+        
+        if chosenImageView.image == nil {
+            print("Image not uploaded")
+        }
+        else {
+            var posts = PFObject(className: "Posts")
+            posts["imageText"] = imageText
+            posts["uploader"] = PFUser.current()
+            posts.saveInBackground(block: {(success: Bool, error: Error?) -> Void in
+                if error == nil {
+                    var imageData = UIImagePNGRepresentation(self.chosenImageView.image!)
+                    var parseImageFile = PFFile(name: "upload_image.png", data: imageData!)
+                    posts["imageFile"] = parseImageFile
+                    posts.saveInBackground(block: {(success: Bool, error: Error?) -> Void in
+                        if error == nil {
+                            print("data uploaded")
+                            self.postUploadingLabel.text = "Post Uploaded"
+                        }
+                        else {
+                            print(error)
+                        }
+                    })
+                }
+                    
+                else {
+                    print(error)
+                }
+            
+            })
+        }
+    }
+    
 }

@@ -16,6 +16,8 @@
 		453DA1DF217E362100578550 /* flickgramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453DA1DE217E362100578550 /* flickgramUITests.swift */; };
 		453DA1ED217E3CF000578550 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453DA1EC217E3CF000578550 /* LoginViewController.swift */; };
 		453DA1EF217E49D700578550 /* PhotoMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453DA1EE217E49D700578550 /* PhotoMapViewController.swift */; };
+		453DA1F1217E7AF200578550 /* postsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453DA1F0217E7AF200578550 /* postsViewController.swift */; };
+		453DA1F3217ECC0000578550 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453DA1F2217ECC0000578550 /* FeedCell.swift */; };
 		79BC2D305B15A0B026145CDF /* Pods_flickgramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8CD6D3BF29AF6CF06076C2 /* Pods_flickgramTests.framework */; };
 		BB434252BABE70B3D8B64EA7 /* Pods_flickgramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A295DD5E008DA3D56213A56F /* Pods_flickgramUITests.framework */; };
 		E3B8845ED3AFA635B08300A8 /* Pods_flickgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC99BE0320491B33A80D000 /* Pods_flickgram.framework */; };
@@ -55,6 +57,8 @@
 		453DA1E0217E362100578550 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		453DA1EC217E3CF000578550 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		453DA1EE217E49D700578550 /* PhotoMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMapViewController.swift; sourceTree = "<group>"; };
+		453DA1F0217E7AF200578550 /* postsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postsViewController.swift; sourceTree = "<group>"; };
+		453DA1F2217ECC0000578550 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		5EAE998C08BA2B152B547748 /* Pods-flickgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flickgram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-flickgram/Pods-flickgram.debug.xcconfig"; sourceTree = "<group>"; };
 		5FB287FC9852D1F1D8AED8BB /* Pods-flickgramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flickgramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-flickgramUITests/Pods-flickgramUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		69B82ABA33EA8F95BFD3EED5 /* Pods-flickgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flickgram.release.xcconfig"; path = "Pods/Target Support Files/Pods-flickgram/Pods-flickgram.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				453DA1BE217E361F00578550 /* AppDelegate.swift */,
 				453DA1C0217E361F00578550 /* ViewController.swift */,
 				453DA1C2217E361F00578550 /* Main.storyboard */,
+				453DA1F0217E7AF200578550 /* postsViewController.swift */,
+				453DA1F2217ECC0000578550 /* FeedCell.swift */,
 				453DA1EE217E49D700578550 /* PhotoMapViewController.swift */,
 				453DA1EC217E3CF000578550 /* LoginViewController.swift */,
 				453DA1C5217E362100578550 /* Assets.xcassets */,
@@ -383,10 +389,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				453DA1F1217E7AF200578550 /* postsViewController.swift in Sources */,
 				453DA1ED217E3CF000578550 /* LoginViewController.swift in Sources */,
 				453DA1C1217E361F00578550 /* ViewController.swift in Sources */,
 				453DA1EF217E49D700578550 /* PhotoMapViewController.swift in Sources */,
 				453DA1BF217E361F00578550 /* AppDelegate.swift in Sources */,
+				453DA1F3217ECC0000578550 /* FeedCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
