@@ -13,16 +13,32 @@ class postsViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     @IBOutlet weak var homePageTableView: UITableView!
     
+    // code to move to post page
+    @IBAction func onPost(_ sender: Any) {
+        performSegue(withIdentifier: "postSegue", sender: nil)
+    }
+    
     var imageFiles = [PFFile]()
     var imageText = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        homePageTableView.delegate = self
+        homePageTableView.dataSource = self
+        
+        fetchPostData()
+    }
 
-        var query = PFQuery(className: "Posts")
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    // code for fetching data
+    func fetchPostData() {
+        let query = PFQuery(className: "Posts")
         query.order(byDescending: "createdAt")
-        query.findObjectsInBackground { (posts: [AnyObject]?, Error?) Void in
-            
+        query.findObjectsInBackground { (posts, error) in
             if error == nil {
                 for post in posts! {
                     self.imageFiles.append(post["imageFile"] as! PFFile)
@@ -31,34 +47,29 @@ class postsViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
                 self.homePageTableView.reloadData()
             }
-            
+                
             else {
                 print(error)
             }
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return imageFiles.count
-    } // Method for how many rows in tableview.
-    
+    }
+
+    // code for setting elements in tableview to specific valuse from the database
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedCell
         
         cell.captionLabel.text = imageText[indexPath.row]
     
-        imageFiles[indexPath.row].getDataInBackground { (imageData: NSData?, error: Error?) -> Void in
-            if imageData != nil {
-                let image = UIImage(data: imageData!)
-                singleCell.posterImageView.image = image
+        imageFiles[indexPath.row].getDataInBackground { (data, error) -> Void in
+            if error != nil {
+                print(error.debugDescription)
             }
             else {
-                print(error)
+                cell.posterImageView.image = UIImage(data: data!)
             }
         }
         
