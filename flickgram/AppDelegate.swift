@@ -25,10 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         )
         
-      //  if PFUser.current() != nil { // checks cache to see if user is logged in
-        //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-          //  window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "PhotoMapViewController")
-        //}
+        // if PFUser.current() != nil { // checks cache to see if user is logged in
+          //  let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            // window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "postsViewController")
+        // }
         
         return true
     }

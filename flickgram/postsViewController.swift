@@ -18,6 +18,7 @@ class postsViewController: UIViewController, UITableViewDataSource, UITableViewD
         performSegue(withIdentifier: "postSegue", sender: nil)
     }
     
+    
     var imageFiles = [PFFile]()
     var imageText = [String]()
     
